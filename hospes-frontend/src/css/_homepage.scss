@@ -1,0 +1,84 @@
+$header-length: 11vh;
+@font-face {
+    font-family: "title-font";
+    src: url("../assets/uni-sans/Uni\ Sans\ Heavy.otf");
+}
+
+@font-face {
+    font-family: "nav-font";
+    src: url("../assets/uni-sans/Uni\ Sans\ Thin.otf");
+    
+}
+
+header {
+    height: $header-length;
+    width: 100%;
+    background-color: #EAFFFD;
+    color: #6B5E62;
+    box-shadow: 2px 0px 10px ;
+}
+
+.navigation {
+    height: 100%;
+    padding: .5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+        font-family: Impact, "Haettenschweiler", 'Arial Narrow Bold', sans-serif;
+        font-size: 3em;
+        flex: 1;
+    }
+    .image-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .image-container{
+        max-width: 5vh;
+        max-height: 5vh;
+        position:relative;
+        .profile-options{
+            background-color: white;
+            min-width: 5em;
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            font-size: 2em;
+            transform: translate(-70%, 100%);
+            display: flex;
+            flex-direction: column;
+            border-radius: 1em;
+            font-family: "nav-font", sans-serif;
+        }
+        .profile-option {
+            background-color: #C9F0FF;
+            &:hover {
+                background-color: #ccc;
+            }
+            font-size: .8em;
+        }
+        .profile-button {
+            border-radius: .5em .5em 0 0em;
+        }
+        .logout-button {
+            border-radius: 0em 0em .5em .5em;
+        }
+        .profile {
+            flex: 1;
+            border-radius: 1em;
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+    }
+    .profile-pic {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 100%;
+    }
+
+
+}

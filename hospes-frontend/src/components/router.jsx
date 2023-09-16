@@ -5,10 +5,10 @@ import Homepage from "./Homepage";
 const Router = () => {
     const user = true;
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: user ? <Homepage/>: <Navigate to="/login" />,
-  },
+    {
+      path: "/",
+      element: user ? <Homepage/>: <Navigate to="/login" />,
+    },
     {
       path: "/login",
       element: <Login/>
