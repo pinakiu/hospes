@@ -101,7 +101,7 @@ header {
     border: 1px solid black;
     border-radius: 2em;  
     background-color: rgb(235,235,235);
-    width: 80%
+    width: 90%
 }
 .location{
     flex: 2;
@@ -116,6 +116,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;   
+    gap: .2em;
     font-size: 1.1em;
     &:hover{
         background-color: rgb(221,221,221);
@@ -130,36 +131,4 @@ header {
     gap: .25em;
     font-size: 1.3em;
     padding: .8em;
-}
-
-// Display homes
-
-.view-homes {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap:1em;
-}
-.home {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    min-height: 20;
-}
-.home-image{
-    height: 15em;
-    border-radius: 1em;
-    flex: 4;
-    
-}
-.home-information {
-    width: 100%;
-    flex: 1;
-    border: flex;
-}
-.owner-origin, .languages-spoken, .stay-price {
-    font-size: .8em;
-    color: grey;
-    
 }
