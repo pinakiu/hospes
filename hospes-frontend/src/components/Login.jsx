@@ -1,8 +1,22 @@
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  const handleUserChange = (e) => {
+    if(e.target.name === "email"){
+      setUser({...user, email: e.target.value})
+    }
+    if(e.target.name === "password"){
+      setUser({...user, password: e.target.value})
+    }
+  } 
+
   return (
     <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
     <div className="container py-5 h-100">
@@ -26,25 +40,34 @@ function App() {
                     >
                       Sign into your account
                     </h5>
-                    <div className="form-outline mb-4">
+                    <div className="form-outline mb-4"> 
                       <input
                         type="email"
                         id="form2Example17"
                         className="form-control form-control-lg"
+                        name='email'
+                        onChange={(e) => handleUserChange(e)}
+                        value={user.email}
                       />
-                      <label className="form-label" htmlFor="form2Example17">
-                        Email address
-                      </label>
+                      {user.email.length === 0 &&
+                        <label className="form-label" htmlFor="form2Example17">
+                          Email address
+                        </label>}
+                     
                     </div>
                     <div className="form-outline mb-4">
                       <input
                         type="password"
                         id="form2Example27"
                         className="form-control form-control-lg"
+                        name='password'
+                        onChange={(e) => handleUserChange(e)}
+                        value={user.password}
                       />
-                      <label className="form-label" htmlFor="form2Example27">
-                        Password
-                      </label>
+                      {user.password.length === 0 &&
+                        <label className="form-label" htmlFor="form2Example17">
+                          Password
+                        </label>}
                     </div>
                     <div className="pt-1 mb-4">
                       <button
@@ -72,7 +95,7 @@ function App() {
                   alt="login form"
                   className="img-fluid"
                   style={{ borderRadius: "0rem 1rem 1rem 0rem",
-                  height: "100%", boxShadow:" -2px 0px 5px lightgrey "}}
+                  height: "100%", boxShadow:" -2px 0px 5px lightgrey"}}
                 />
               </div>
             </div>

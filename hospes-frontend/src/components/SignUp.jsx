@@ -1,16 +1,10 @@
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Switch from '@mui/material/Switch';
 import { useEffect, useState } from 'react';
-import {motion} from "framer-motion"
 import { Link } from 'react-router-dom';
 import ToggleButton from './ToggleButton';
 
 const SignUp = () => {
-    const [checked, setChecked] = useState(false);
-    const handleChange = (event) => {
-      setChecked(event.target.checked);
-    };
     const [client, setClient] = useState({
         name: "",
         email: "",
@@ -58,6 +52,7 @@ const SignUp = () => {
                           className="form-control"
                           name='name'
                           onChange={(e) => handleClientChange(e)}
+                          value={client.name}
                         />
                         {client.name.length === 0 &&
                         <label className="form-label" htmlFor="form3Example3c">
@@ -74,6 +69,7 @@ const SignUp = () => {
                           className="form-control"
                           name='email'
                           onChange={(e) => handleClientChange(e)}
+                          value={client.email}
                         />
                         {client.email.length === 0 &&
                         <label className="form-label" htmlFor="form3Example3c">
@@ -90,6 +86,7 @@ const SignUp = () => {
                           className="form-control"
                           name='password'
                           onChange={(e) => handleClientChange(e)}
+                          value={client.password}
                         />
                           {client.password.length === 0 &&
                             <label className="form-label" htmlFor="form3Example3c">
@@ -107,6 +104,7 @@ const SignUp = () => {
                           className="form-control"
                           name='confirmPassword'
                           onChange={(e) => handleClientChange(e)}
+                          value={client.confirmPassword}
                         />
                         {client.confirmPassword.length === 0 &&
                         <label className="form-label" htmlFor="form3Example3c">
