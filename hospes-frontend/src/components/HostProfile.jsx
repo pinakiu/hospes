@@ -10,8 +10,8 @@ const HostProfile = () =>
         propertyPhoto: 'https://images.pexels.com/photos/2189666/pexels-photo-2189666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
         availability: 'Available',
         numberOfPeopleInHousehold: 3,
-        aboutMe: 'I love traveling and meeting new people!',
-        misc: 'I have a dog in the house.'
+        capacity: 2,
+        description: 'I have many pets in the house.'
       };
 
     
@@ -56,28 +56,28 @@ const HostProfile = () =>
                 <div className="col-md-7">
                     <h1 className="display-3 mb-5">Firstname Lastname</h1>
                     <div className="mb-4">
-                        <label className="form-label">Bio</label>
-                        <div style={boxStyle}>{profileData.aboutMe}</div>
+                        <label className="form-label">Description</label>
+                        <div style={boxStyle}>{profileData.description}</div>
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-3">
                         <label className="form-label">Origin Country</label>
                         <div style={boxStyle}>{profileData.originCountry}</div>
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-3">
                         <label className="form-label">Price</label>
                         <div style={boxStyle}>{profileData.price}</div>
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-3">
                         <label className="form-label">Availability</label>
                         <div style={boxStyle}>{profileData.availability}</div>
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-3">
                         <label className="form-label"># of People in Household</label>
                         <div style={boxStyle}>{profileData.numberOfPeopleInHousehold}</div>
                     </div>
-                    <div className="mb-4">
-                        <label className="form-label">Notes</label>
-                        <div style={boxStyle}>{profileData.misc}</div>
+                    <div className="mb-3">
+                        <label className="form-label">Capacity</label>
+                        <div style={boxStyle}>{profileData.capacity}</div>
                     </div>
                 </div>
             </div>
