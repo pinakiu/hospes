@@ -4,12 +4,16 @@ from django.conf import settings
 
 media_root = settings.MEDIA_ROOT
 
-class User(models.Model):
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
-    username = models.CharField(max_length=200)
-    password = models.CharField(max_length=200)
-    user_type = models.IntegerField(null = True, blank = True)
+class CustomUser(AbstractUser):
+    # first_name = models.CharField(max_length=200)
+    # last_name = models.CharField(max_length=200)
+    # username = models.CharField(max_length=200)
+    # password = models.CharField(max_length=200)
+    USER_TYPES = (
+        ('guest', 'Guest'),
+        ('host', 'Host'),  
+    )
+    user_type = models.CharField(max_length=10, choices=USER_TYPES, null = True, blank = True)
     
     def __str__(self):
         return self.username
