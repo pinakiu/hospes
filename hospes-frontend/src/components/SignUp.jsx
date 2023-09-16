@@ -112,16 +112,16 @@ const SignUp = () => {
                             </label>}
                       </div>
                     </div>
-                    <div className="form-check d-flex align-items-center justify-content-around mb-2">
+                    <div className="form-check d-flex align-items-center justify-content-center mb-2 pt-4 pb-4 px-2">
                         <ToggleButton/>
+                    </div>
+                    <div className="d-flex justify-content-center mt-2, mx-4 mb-3 mb-lg-4">
+                      <button type="button" className="btn btn-dark btn-lg btn-block">
+                        Register
+                      </button>
                     </div>
                     <div className="form-check d-flex align-items-center gap-2 mb-3">
                         Already have an account? <Link to="/login">Login here</Link>
-                    </div>
-                    <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" className="btn btn-primary btn-lg">
-                        Register
-                      </button>
                     </div>
                   </form>
                 </div>
