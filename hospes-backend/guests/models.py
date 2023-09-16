@@ -1,8 +1,8 @@
 from django.db import models
-from accessories import Account
+from accessories.views import CustomUser
 
 class GuestProfile(models.Model):
-    guest_account = models.OneToOneField(Account, on_delete=models.CASCADE)
+    guest_account = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     location = models.IntegerField(null=True, blank=True)
     origin_country = models.IntegerField(null=True, blank=True)
     language = models.IntegerField(null=True, blank=True)
