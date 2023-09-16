@@ -21,8 +21,8 @@ function App() {
     <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
     <div className="container py-5 h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
-        <div className="col col-xl-10">
-          <div className="card" style={{ borderRadius: "1rem",boxShadow: " 0px 0px 20px black"}}>
+        <div className="col d-flex justify-content-center col-xl-10">
+          <div className="card" style={{ borderRadius: "1rem", boxShadow: " 0px 0px 20px black", maxWidth: '90%'}}>
             <div className="row g-0">
               <div className="col-md-6 col-lg-7 d-flex align-items-center">
                 <div className="card-body p-4 p-lg-5 text-black">
@@ -92,9 +92,9 @@ function App() {
                   </form>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-5 d-none d-md-block my-4">
+              <div className="col-md-6 col-lg-5 d-none d-md-block my-4 px-4">
                 <img 
-                  style={{ borderRadius: 25}}
+                  style={{ borderRadius: 15}}
                   src="https://images.pexels.com/photos/4046512/pexels-photo-4046512.jpeg?auto=compress&cs=tinysrgb&w=200&h=400&dpr=2"
                   className="img-fluid"
                   alt="Sample image"

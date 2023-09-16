@@ -128,7 +128,7 @@ const SignUp = () => {
                 </div>
                 <div className="col-md-10 col-lg-6 col-xl-7 d-flex justify-content-center align-items-center order-1 order-lg-2">
                   <img 
-                    style={{ borderRadius: 25}}
+                    style={{ borderRadius: 15}}
                     src={image}
                     className="img-fluid"
                     alt="Sample image"
