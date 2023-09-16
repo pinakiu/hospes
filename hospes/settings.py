@@ -37,14 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "hosts.apps.HostsConfig",
 
     'rest_framework',
     'corsheaders',
-
-    'hosts'
 ]
 
-CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:8000/"]
+CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:8000"]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
