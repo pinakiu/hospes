@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'django.contrib.staticfiles',
     "hosts.apps.HostsConfig",
+    "accessories.apps.AccessoriesConfig",
+    "guests.apps.GuestsConfig",
     'rest_framework',
 ]
 
