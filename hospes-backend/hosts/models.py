@@ -1,63 +1,50 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
-class Config(models.Model):
-    config_id = models.AutoField(primary_key=True)
-    config_name = models.CharField(max_length=500, unique=True)
+User = get_user_model()
 
-    def __str__(self):
-        return self.config_name
-    
-
-class ConfigSet(models.Model):
-    config_set_id = models.AutoField(primary_key=True)
-    config_id = models.ForeignKey(Config, on_delete=models.CASCADE)
-    config_value = models.CharField(max_length=500)
-
-    def __str__(self):
-        return self.config_value
-
-# class Account(models.Model):
-#     first_name = models.CharField(max_length=50)
-#     last_name = models.CharField(max_length=50)
-#     username = models.CharField(max_length=50)
-#     password = models.CharField(max_length=50)
-
-# class HostProfile(models.Model):
-#     host_account = models.OneToOneField(HostAccount, on_delete=models.CASCADE)
-#     location = models.IntegerField(null=True, blank=True)
-#     origin_country = models.IntegerField(null=True, blank=True)
-#     language = models.IntegerField(null=True, blank=True)
-#     dietary_restrictions = models.CharField(max_length=50)
-#     price = models.FloatField(null=True, blank=True)
-#     profile_photo = models.ImageField(max_length=50)
-#     home_photo_id = models.IntegerField(null=True, blank=True)
-#     availability = models.JSONField(default=dict, null=True, blank=True)
-#     capacity = models.IntegerField(null=True, blank=True)
-#     description = models.CharField(max_length=50)
-
-
-# class GuestAccount(models.Model):
-#     first_name = models.CharField(max_length=50)
-#     last_name = models.CharField(max_length=50)
-#     username = models.CharField(max_length=50)
-#     password = models.CharField(max_length=50)
-
-# class GuestProfile(models.Model):
-#     guest_account = models.OneToOneField(GuestAccount, on_delete=models.CASCADE)
-#     location = models.IntegerField(null=True, blank=True)
-#     origin_country = models.IntegerField(null=True, blank=True)
-#     language = models.IntegerField(null=True, blank=True)
-#     dietary_restrictions = models.CharField(max_length=50)
-#     target_price = models.FloatField(null=True, blank=True)
-#     profile_photo = models.ImageField(max_length=50)
-#     target_dates = models.JSONField(default=dict, null=True, blank=True)
-#     description = models.CharField(max_length=50)
+class HostProfile(models.Model):
+    host_account = models.OneToOneField(User, on_delete=models.CASCADE)
+    LOCATION_TYPES = (
+        ('USA', 'USA'),
+        ('Canada', 'Canada'),
+        ('Mexico', 'Mexico'),
+        ('South America', 'South America'),
+        ('Europe', 'Europe'),
+        ('Africa', 'Africa'),
+        ('Asia', 'Asia'),
+        ('Australia', 'Australia'),
+        ('Other', 'Other')
+    )
+    location = models.CharField(choices='LOCATION_TYPES', max_length=100, null=True, blank=True)
+    ORIGIN_COUNTRIES = (
+        ('India', 'India'),
+        ('China', 'China'),
+        ('Japan', 'Japan'),
+        ('Turkey', 'Turkey'),
+        ('France', 'France'),
+        ('Turkmenistan', 'Turkmenistan'),
+    )
+    origin_country = models.CharField(choices='ORIGIN_COUNTRIES', null=True, blank=True)
+    LANGUAGES = (
+        ('English', 'English'),
+        ('Hindi', 'Hindi'),
+        ('Mandarin', 'Mandarin'),
+        ('Russian', 'Russian'),
+        ('French', 'French'),
+    )
+    language = models.CharField(choices=LANGUAGES, null=True, blank=True)
+    dietary_restrictions = models.CharField(max_length=50)
+    price = models.FloatField(null=True, blank=True)
+    availability = models.JSONField(default=dict, null=True, blank=True)
+    capacity = models.IntegerField(null=True, blank=True)
+    description = models.CharField(max_length=2000)
 
 
-# class Photos(models.Model):
-#     host_profile = models.ForeignKey(HostProfile, on_delete=models.CASCADE)
-#     profile_photo = models.ImageField(max_length=50)
-#     home_photo = models.ImageField(max_length=50)
+
+
+
+
 
 
 

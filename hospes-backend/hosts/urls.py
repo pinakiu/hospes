@@ -8,7 +8,7 @@ from django.urls import path, include
 
 urlpatterns = [
     # path('', include(router.urls)),
-    path('getConfig/', views.getConfig),
-    path('getConfig/<int:id>/', views.getConfigDetail),
+    path('getAllHosts/', views.getAllHosts),
+    path('getHostDetail/<int:id>/', views.getHostDetail),
 
 ]

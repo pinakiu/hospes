@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Config
+from .models import HostProfile
 
-class ConfigSerializer(serializers.ModelSerializer):
+class HostProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Config
-        fields = ['config_id', 'config_name'] # "__all__"
+        model = HostProfile
+        fields = "__all__"
 
 # class ConfigSetSerializer(serializers.ModelSerializer):
 #     class Meta:
