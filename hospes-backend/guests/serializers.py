@@ -1,9 +1,9 @@
 # from rest_framework import serializers
-# from .models import HostProfile
+# from .models import GuestProfile
 
-# class HostProfileSerializer(serializers.ModelSerializer):
+# class GuestProfileSerializer(serializers.ModelSerializer):
 #     class Meta:
-#         model = HostProfile
+#         model = GuestProfile
 #         fields = "__all__"
 
 # # class ConfigSetSerializer(serializers.ModelSerializer):

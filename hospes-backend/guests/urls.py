@@ -1,6 +1,6 @@
 # # from rest_framework.routers import DefaultRouter
 # from django.contrib import admin
-# from hosts import views 
+# from guests import views 
 # from django.urls import path, include
 
 # # router = DefaultRouter()
@@ -8,7 +8,7 @@
 
 # urlpatterns = [
 #     # path('', include(router.urls)),
-#     path('getAllHosts/', views.getAllHosts),
-#     path('getHostDetail/<int:id>/', views.getHostDetail),
+#     path('getAllGuests/', views.getAllGuests),
+#     path('getGuestDetail/<int:id>/', views.getGuestDetail),
 
 # ]
