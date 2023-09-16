@@ -1,4 +1,5 @@
 import Header from "./Header"
+import StarRating from "./StarRating";
 const HostProfile = () =>
 {
     const profileData = {
@@ -11,7 +12,8 @@ const HostProfile = () =>
         availability: 'Available',
         numberOfPeopleInHousehold: 3,
         capacity: 2,
-        description: 'I have many pets in the house.'
+        description: 'I have many pets in the house.',
+        rating: "4.4"
       };
 
     
@@ -54,8 +56,9 @@ const HostProfile = () =>
                     <img src={profileData.propertyPhoto} alt="Profile" className="img-fluid" style={{ width: "300px", height: "300px", borderRadius: "15px", objectFit: "cover"}}/>
                 </div>
                 <div className="col-md-7">
-                    <h1 className="display-3 mb-5">Firstname Lastname</h1>
-                    <div className="mb-4">
+                    <h1 className="display-3 mb-1">Firstname Lastname</h1>
+                    <StarRating rating={profileData.rating}/>
+                    <div className="mt-4 mb-4">
                         <label className="form-label">Description</label>
                         <div style={boxStyle}>{profileData.description}</div>
                     </div>
