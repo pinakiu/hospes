@@ -18,7 +18,7 @@ function App() {
   } 
 
   return (
-    <section className="vh-100">
+    <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
     <div className="container py-5 h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col col-xl-10">
@@ -80,9 +80,9 @@ function App() {
                     <a className="small text-muted" href="#!">
                       Forgot password?
                     </a>
-                    <p className="mb-5 pb-lg-2">
+                    <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                       Don't have an account?{" "}
-                      <Link to="/sign-up" style={{ color: "rgb(72,112,196)" }}>
+                      <Link to="/sign-up" style={{ color: "#393f81" }}>
                         Register here
                       </Link>
                     </p>
