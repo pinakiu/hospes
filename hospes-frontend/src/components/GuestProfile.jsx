@@ -1,17 +1,17 @@
 import Header from "./Header"
-const HostProfile = () =>
+const GuestProfile = () =>
 {
     const profileData = {
-        location: 'San Francisco, CA',
-        originCountry: 'United States',
-        price: '$200 per night',
-        language: 'English',
+        Age: '21',
+        destination: 'San Francisco, CA',
+        originCountry: 'Uzbekistan',
+        language: 'Uzbek',
+        budget: '$1500 per month',
+        dietary: 'Lactose Intolerance',
         profilePhoto: "https://cdn.vectorstock.com/i/preview-2x/62/59/default-avatar-photo-placeholder-profile-icon-vector-21666259.webp",
-        propertyPhoto: 'https://images.pexels.com/photos/2189666/pexels-photo-2189666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        availability: 'Available',
-        numberOfPeopleInHousehold: 3,
         aboutMe: 'I love traveling and meeting new people!',
-        misc: 'I have a dog in the house.'
+        dates: '09/23/2023 - 11/01/2023',
+        misc: 'I have a dog I would like to bring.'
       };
 
     
@@ -45,13 +45,12 @@ const HostProfile = () =>
                     <img src={profileData.profilePhoto} alt="Profile" className="img-fluid rounded-circle mb-3" style={{ width: "200px", height: "200px", objectFit: "cover"}}/>
                     <div style={iconTextStyle}>
                         <i className="fas fa-map-marker-alt" style={iconStyle}></i>
-                        <span style={spanStyle}>{profileData.location}</span>
+                        <span style={spanStyle}>{profileData.age}</span>
                     </div>
                     <div className="pb-5" style={iconTextStyle}>
                         <i className="fas fa-language" style={iconStyle}></i>
                         <span style={spanStyle}>{profileData.language}</span>
                     </div>
-                    <img src={profileData.propertyPhoto} alt="Profile" className="img-fluid" style={{ width: "300px", height: "300px", borderRadius: "15px", objectFit: "cover"}}/>
                 </div>
                 <div className="col-md-7">
                     <h1 className="display-3 mb-5">Firstname Lastname</h1>
@@ -64,16 +63,20 @@ const HostProfile = () =>
                         <div style={boxStyle}>{profileData.originCountry}</div>
                     </div>
                     <div className="mb-4">
-                        <label className="form-label">Price</label>
-                        <div style={boxStyle}>{profileData.price}</div>
+                        <label className="form-label">Destination</label>
+                        <div style={boxStyle}>{profileData.destination}</div>
                     </div>
                     <div className="mb-4">
-                        <label className="form-label">Availability</label>
-                        <div style={boxStyle}>{profileData.availability}</div>
+                        <label className="form-label">Dates</label>
+                        <div style={boxStyle}>{profileData.dates}</div>
                     </div>
                     <div className="mb-4">
-                        <label className="form-label"># of People in Household</label>
-                        <div style={boxStyle}>{profileData.numberOfPeopleInHousehold}</div>
+                        <label className="form-label">Budget</label>
+                        <div style={boxStyle}>{profileData.budget}</div>
+                    </div>
+                    <div className="mb-4">
+                        <label className="form-label">Dietary Restrictions</label>
+                        <div style={boxStyle}>{profileData.dietary}</div>
                     </div>
                     <div className="mb-4">
                         <label className="form-label">Notes</label>
@@ -85,4 +88,4 @@ const HostProfile = () =>
         </>
       );
 }
-export default HostProfile
+export default GuestProfile
