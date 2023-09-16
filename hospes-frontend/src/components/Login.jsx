@@ -40,34 +40,40 @@ function App() {
                     >
                       Sign into your account
                     </h5>
-                    <div className="form-outline mb-4"> 
-                      <input
-                        type="email"
-                        id="form2Example17"
-                        className="form-control form-control-lg"
-                        name='email'
-                        onChange={(e) => handleUserChange(e)}
-                        value={user.email}
-                      />
-                      {user.email.length === 0 &&
-                        <label className="form-label" htmlFor="form2Example17">
-                          Email address
-                        </label>}
+                    <div className="d-flex flex-row align-items-center mb-4">
+                      <i className="fas fa-envelope fa-lg me-3 fa-fw" />
+                      <div className="form-outline flex-fill mb-0">   
+                        <input
+                          type="email"
+                          id="form2Example17"
+                          className="form-control form-control-lg"
+                          name='email'
+                          onChange={(e) => handleUserChange(e)}
+                          value={user.email}
+                        />
+                        {user.email.length === 0 &&
+                          <label className="form-label" htmlFor="form2Example17">
+                            Email address
+                          </label>}
+                      </div>
                      
                     </div>
-                    <div className="form-outline mb-4">
-                      <input
-                        type="password"
-                        id="form2Example27"
-                        className="form-control form-control-lg"
-                        name='password'
-                        onChange={(e) => handleUserChange(e)}
-                        value={user.password}
-                      />
-                      {user.password.length === 0 &&
-                        <label className="form-label" htmlFor="form2Example17">
-                          Password
-                        </label>}
+                    <div className="d-flex flex-row align-items-center mb-4">
+                      <i className="fas fa-lock fa-lg me-3 fa-fw" />
+                      <div className="form-outline flex-fill mb-0">                     
+                        <input
+                          type="password"
+                          id="form2Example27"
+                          className="form-control form-control-lg"
+                          name='password'
+                          onChange={(e) => handleUserChange(e)}
+                          value={user.password}
+                        />
+                        {user.password.length === 0 &&
+                          <label className="form-label" htmlFor="form2Example17">
+                            Password
+                          </label>}
+                      </div> 
                     </div>
                     <div className="pt-1 mb-4">
                       <button
@@ -80,12 +86,9 @@ function App() {
                     <a className="small text-muted" href="#!">
                       Forgot password?
                     </a>
-                    <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
-                      Don't have an account?{" "}
-                      <Link to="/sign-up" style={{ color: "#393f81" }}>
-                        Register here
-                      </Link>
-                    </p>
+                    <div className="form-check d-flex align-items-left gap-2 mb-3 p-0">
+                        Don't have an account? <Link to="/sign-up">Register here</Link>
+                    </div>
                   </form>
                 </div>
               </div>
