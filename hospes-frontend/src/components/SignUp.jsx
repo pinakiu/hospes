@@ -1,5 +1,6 @@
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import image from "../assets/greeting-guests.jpg"
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ToggleButton from './ToggleButton';
@@ -128,7 +129,7 @@ const SignUp = () => {
                 <div className="col-md-10 col-lg-6 col-xl-7 d-flex justify-content-center align-items-center order-1 order-lg-2">
                   <img 
                     style={{ borderRadius: 25}}
-                    src="https://images.pexels.com/photos/4046512/pexels-photo-4046512.jpeg?auto=compress&cs=tinysrgb&w=200&h=400&dpr=2"
+                    src={image}
                     className="img-fluid"
                     alt="Sample image"
                   />

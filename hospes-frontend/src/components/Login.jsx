@@ -92,13 +92,12 @@ function App() {
                   </form>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-5 d-none d-md-block">
-                <img
-                  src="https://cdn.pixabay.com/photo/2016/12/19/10/16/hands-1917895_1280.png"
-                  alt="login form"
+              <div className="col-md-6 col-lg-5 d-none d-md-block my-4">
+                <img 
+                  style={{ borderRadius: 25}}
+                  src="https://images.pexels.com/photos/4046512/pexels-photo-4046512.jpeg?auto=compress&cs=tinysrgb&w=200&h=400&dpr=2"
                   className="img-fluid"
-                  style={{ borderRadius: "0rem 1rem 1rem 0rem",
-                  height: "100%", boxShadow:" -2px 0px 5px lightgrey"}}
+                  alt="Sample image"
                 />
               </div>
             </div>
