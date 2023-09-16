@@ -1,5 +1,5 @@
 from django.db import models
-# from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 
 media_root = settings.MEDIA_ROOT
@@ -11,7 +11,6 @@ class Config(models.Model):
     def __str__(self):
         return self.config_name
 
-
 class ConfigSet(models.Model):
     config_set_id = models.AutoField(primary_key=True)
     config_id = models.ForeignKey(Config, on_delete=models.CASCADE)
@@ -19,20 +18,17 @@ class ConfigSet(models.Model):
 
     def __str__(self):
         return f"{self.config_id.config_name} {self.config_value}"
-
-# class CustomUser(AbstractUser):
-#     # first_name = models.CharField(max_length=200)
-#     # last_name = models.CharField(max_length=200)
-#     # username = models.CharField(max_length=200)
-#     # password = models.CharField(max_length=200)
-#     USER_TYPES = (
-#         ('guest', 'Guest'),
-#         ('host', 'Host'),  
-#     )
-#     user_type = models.CharField(max_length=10, choices=USER_TYPES, null = True, blank = True)
     
-#     def __str__(self):
-#         return self.username
+class User(models.Model):
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    username = models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
+
+    user_type = models.IntegerField(null = True, blank = True)
+
+    def __str__(self):
+        return self.username
 
 def user_directory_path(instance, filename):
     return 'BASE_DIR/media/{0}/{1}'.format(filename)
