@@ -10,18 +10,19 @@ const ToggleButton = () => {
   };
 
   return (
-    <div className="d-inline-block border rounded">
+    <div className="d-inline-block" style={{ borderRadius: '20px', overflow: 'hidden', border: '1px solid #ccc' }}>
       <div className="position-relative" style={{ width: '200px', height: '40px' }}>
         <div
           className="position-absolute"
           style={{
-            left: selected === 'Guest' ? '0' : '100px',
-            top: 0,
+            left: selected === 'Guest' ? '1px' : '99px',
+            top: '1px',
+            right: '5px',
             width: '100px',
-            height: '40px',
+            height: '38px',
             backgroundColor: '#ddd',
             transition: 'left 0.3s ease-in-out',
-            borderRadius: '0.25rem',
+            borderRadius: '20px',
             textAlign: 'center',
             lineHeight: '40px'
           }}
@@ -37,7 +38,7 @@ const ToggleButton = () => {
             width: '100px',
             height: '40px',
             backgroundColor: 'transparent',
-            boxShadow: 'none'
+            boxShadow: 'none',
           }}
         >
           Guest
@@ -51,7 +52,7 @@ const ToggleButton = () => {
             width: '100px',
             height: '40px',
             backgroundColor: 'transparent',
-            boxShadow: 'none'
+            boxShadow: 'none',
           }}
         >
           Host
