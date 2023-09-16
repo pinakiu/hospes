@@ -1,4 +1,6 @@
 import Header from "./Header"
+import StarRating from "./StarRating";
+
 const GuestProfile = () =>
 {
     const profileData = {
@@ -10,7 +12,8 @@ const GuestProfile = () =>
         dietary: 'Lactose Intolerance',
         profilePhoto: "https://cdn.vectorstock.com/i/preview-2x/62/59/default-avatar-photo-placeholder-profile-icon-vector-21666259.webp",
         dates: '09/23/2023 - 11/01/2023',
-        description: "I love dogs and want to bring my own!"
+        description: "I love dogs and want to bring my own!",
+        rating: "2.4"
       };
 
     
@@ -52,8 +55,9 @@ const GuestProfile = () =>
                     </div>
                 </div>
                 <div className="col-md-7">
-                    <h1 className="display-3 mb-5">Firstname Lastname</h1>
-                    <div className="mb-3">
+                    <h1 className="display-3 mb-1">Firstname Lastname</h1>
+                    <StarRating rating={profileData.rating}/>
+                    <div className="mt-4 mb-4">
                         <label className="form-label">Description</label>
                         <div style={boxStyle}>{profileData.description}</div>
                     </div>
