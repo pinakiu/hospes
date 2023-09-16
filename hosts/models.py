@@ -35,9 +35,29 @@ class ConfigSet(models.Model):
 #     capacity = models.IntegerField(null=True, blank=True)
 #     description = models.CharField(max_length=50)
 
+
+# class GuestAccount(models.Model):
+#     first_name = models.CharField(max_length=50)
+#     last_name = models.CharField(max_length=50)
+#     username = models.CharField(max_length=50)
+#     password = models.CharField(max_length=50)
+
+# class GuestProfile(models.Model):
+#     guest_account = models.OneToOneField(GuestAccount, on_delete=models.CASCADE)
+#     location = models.IntegerField(null=True, blank=True)
+#     origin_country = models.IntegerField(null=True, blank=True)
+#     language = models.IntegerField(null=True, blank=True)
+#     dietary_restrictions = models.CharField(max_length=50)
+#     target_price = models.FloatField(null=True, blank=True)
+#     profile_photo = models.ImageField(max_length=50)
+#     target_dates = models.JSONField(default=dict, null=True, blank=True)
+#     description = models.CharField(max_length=50)
+
+
 # class Photos(models.Model):
 #     host_profile = models.ForeignKey(HostProfile, on_delete=models.CASCADE)
-#     photo = models.ImageField(max_length=50)
+#     profile_photo = models.ImageField(max_length=50)
+#     home_photo = models.ImageField(max_length=50)
 
 
 
