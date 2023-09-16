@@ -1,11 +1,17 @@
 from django.db import models
 
 class Config(models.Model):
+    config_id = models.IntegerField()
     config_name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.config_name
+    
 
-class Config_Set(models.Model):
-    config_set = models.ForeignKey(Config, on_delete=models.CASCADE)
+class ConfigSet(models.Model):
+    config_set_id = models.PrimaryKey()
+    config_id = models.ForeignKey(Config, on_delete=models.CASCADE)
+    config_value = models.CharField(max_length=500)
 
 class HostAccount(models.Model):
     first_name = models.CharField(max_length=50)
@@ -13,11 +19,10 @@ class HostAccount(models.Model):
     username = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
 
-
 class HostProfile(models.Model):
     host_account = models.OneToOneField(HostAccount, on_delete=models.CASCADE)
     location = models.IntegerField(null=True, blank=True)
-    origin_country = models.IntegerField(null=True, blank=True)
+    origin_country = models.IntegerField(null=True, blank=True, on_delete)
     language = models.IntegerField(null=True, blank=True)
     dietary_restrictions = models.CharField(max_length=50)
     price = models.FloatField(null=True, blank=True)
