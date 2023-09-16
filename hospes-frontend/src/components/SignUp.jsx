@@ -4,6 +4,7 @@ import Switch from '@mui/material/Switch';
 import { useEffect, useState } from 'react';
 import {motion} from "framer-motion"
 import { Link } from 'react-router-dom';
+import ToggleButton from './ToggleButton';
 
 const SignUp = () => {
     const [checked, setChecked] = useState(false);
@@ -97,7 +98,7 @@ const SignUp = () => {
                             }
                       </div>
                     </div>
-                    <div className="d-flex flex-row align-items-center mb-4">
+                    <div className="d-flex flex-row align-items-center mb-2">
                       <i className="fas fa-key fa-lg me-3 fa-fw" />
                       <div className="form-outline flex-fill mb-0">
                         <input
@@ -114,35 +115,7 @@ const SignUp = () => {
                       </div>
                     </div>
                     <div className="form-check d-flex align-items-center justify-content-around mb-2">
-                    {!checked ?
-                     <motion.div
-                     initial={{ scale: 1 }}
-                     animate={{ scale: 1.4, color: "rgb(0,0,255)" }}
-                     transition={{ duration: 0.5 }}
-                    style={{fontWeight: "bold",}}
-                     className="client"
-                     >
-                     Client
-                     </motion.div>:
-                     <div>Client</div> }
-                   
-                    <Switch
-                        checked={checked}
-                        onChange={handleChange}
-                        inputProps={{ 'aria-label': 'controlled' }}
-                        />
-
-                    {checked ?
-                        <motion.div
-                        initial={{ scale: 1 }}
-                        animate={{ scale: 1.4, color: "rgb(0,0,255)" }}
-                        transition={{ duration: 0.5 }}
-                        style={{fontWeight: "bold",}}
-                        className="host"
-                        >
-                        Host
-                        </motion.div>:
-                        <div>Host</div> }
+                        <ToggleButton/>
                     </div>
                     <div className="form-check d-flex align-items-center gap-2 mb-3">
                         Already have an account? <Link to="/login">Login here</Link>
