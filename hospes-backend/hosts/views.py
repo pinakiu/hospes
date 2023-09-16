@@ -23,6 +23,23 @@ def getConfig(request):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+@api_view(['GET', 'PUT', 'DELETE'])
+def getConfigDetail(request, id):
+
+    try: 
+        config = Config.objects.get(pk=id)
+    except Config.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = ConfigSerializer(config)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+        pass
+    elif request.method == 'DELETE':
+        pass
+    
 
 
 

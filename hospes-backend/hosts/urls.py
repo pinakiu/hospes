@@ -9,4 +9,6 @@ from django.urls import path, include
 urlpatterns = [
     # path('', include(router.urls)),
     path('getConfig/', views.getConfig),
+    path('getConfig/<int:id>/', views.getConfigDetail),
+
 ]
