@@ -2,7 +2,10 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Link } from 'react-router-dom';
 
-function App() {
+const Login = () =>  {
+  fetch("http://127.0.0.1:8000/config").then((response) => {
+    return response.json();
+  }).then((data) => { console.log(data)});
   return (
     <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
     <div className="container py-5 h-100">
@@ -85,4 +88,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;
