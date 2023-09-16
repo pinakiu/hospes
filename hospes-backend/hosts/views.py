@@ -15,7 +15,7 @@ def getConfig(request):
         config = Config.objects.all()
         serializer = ConfigSerializer(config, many=True)
         # return JsonResponse(serializer.data, safe=False)
-        return JsonResponse({"drinks": serializer.data})
+        return Response(serializer.data)
         #returns {"drinks": [{id: key:}, {id:, key: }]}
     
     if request.method == 'POST':
@@ -36,9 +36,15 @@ def getConfigDetail(request, id):
         serializer = ConfigSerializer(config)
         return Response(serializer.data)
     elif request.method == 'PUT':
-        pass
+        serializer = ConfigSerializer(config, data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        pass
+        config.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
     
 
 
