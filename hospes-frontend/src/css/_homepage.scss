@@ -61,7 +61,7 @@ header {
             }
             font-size: .8em;
         }
-        .profile-button {
+        .home-button {
             border-radius: .5em .5em 0 0em;
         }
         .logout-button {
@@ -82,7 +82,11 @@ header {
     }
 }
 /// Search bar components
-.container {
+.body-container {
+    display: flex;
+    justify-content: center;
+}
+.main-container {
     padding: 1em;
     width: clamp(50%, 1300px, 80%);
     display: flex;
@@ -90,7 +94,6 @@ header {
     align-items: center;
     justify-content: center;
     gap: 2em;
-    border: 1px solid black;
 }
 .title {
     text-align: center;
@@ -137,11 +140,10 @@ header {
 .view-homes {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap:1em;
 }
 .home {
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     gap: 1em;
