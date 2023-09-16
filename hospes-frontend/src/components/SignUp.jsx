@@ -34,7 +34,7 @@ const SignUp = () => {
   <section className="vh-100">
     <div className="container h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
-        <div className="col-lg-16 col-xl-11">
+        <div className="col-lg-16 col-xl-11" style={{maxWidth: '70%'}}>
           <div className="card text-black" style={{ borderRadius: 25 }}>
             <div className="card-body p-md-4">
               <div className="row justify-content-center">
@@ -125,8 +125,9 @@ const SignUp = () => {
                     </div>
                   </form>
                 </div>
-                <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                  <img
+                <div className="col-md-10 col-lg-6 col-xl-7 d-flex justify-content-center align-items-center order-1 order-lg-2">
+                  <img 
+                    style={{ borderRadius: 25}}
                     src="https://images.pexels.com/photos/4046512/pexels-photo-4046512.jpeg?auto=compress&cs=tinysrgb&w=200&h=400&dpr=2"
                     className="img-fluid"
                     alt="Sample image"

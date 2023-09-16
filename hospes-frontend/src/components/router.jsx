@@ -1,12 +1,13 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import Homepage from "./Homepage";
 const Router = () => {
-    
+    const user = true;
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/login" />,
+    element: user ? <Homepage/>: <Navigate to="/login" />,
   },
     {
       path: "/login",
