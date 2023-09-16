@@ -1,14 +1,16 @@
-// color palette: #2b3944, #b7a69a, #e3e4e3, #706869, #60483c, #e1d7c4, #83643d, #9b7b5c, #e6c6a5
 
 import Header from "./Header";
-import Icon from '@mdi/react';
-
-import { mdiMagnify } from '@mdi/js';
-import { motion } from "framer-motion";
 import SearchBar from "./SearchBar";
 
 
 const Homepage = () => {
+    const user = {
+        image: "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=800",
+        location: "New York, NY",
+        price: 500,
+        origin_country: "China",
+        languages: ["English", "Spanish", "Mandarin"]
+    }
     return (
         <>
             <Header/>
@@ -22,9 +24,30 @@ const Homepage = () => {
                     </div>
                 </div>
                 <SearchBar/>
-            </div>
-            <div className="view-homes">
-                
+                <div className="view-homes">
+                    <div className="home" >
+                        <img src="https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                        alt="HomeImage"
+                        className="home-image"/>
+                        <div className="home-information">
+                            <div className="home-location">
+                                {user.location}
+                            </div>
+                            <div className="owner-origin">
+                                Host is from: {user.origin_country}
+                            </div>
+                            <div className="languages-spoken">
+                                Languages: <span> </span>
+                                {user.languages.map((language,index) => (
+                                    <span key={index}>{language} </span>)
+                                )}
+                            </div>
+                            <div className="stay-price">
+                                Total Price:  ${user.price}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
         
