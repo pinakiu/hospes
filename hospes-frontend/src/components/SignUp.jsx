@@ -109,7 +109,7 @@ const SignUp = () => {
                         />
                         {client.confirmPassword.length === 0 &&
                         <label className="form-label" htmlFor="form3Example3c">
-                            Repeat Your Password
+                            Re-enter Password
                             </label>}
                       </div>
                     </div>
