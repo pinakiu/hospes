@@ -1,0 +1,56 @@
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.host-location-container, .language-price-container,
+.availability-container,
+.dietary-restrictions-capacity-container,
+.house-person-container{
+    display: flex;
+    gap: 1em;
+    .origin-host-sign-up,
+    .host-location-sign-up,
+    .host-language-sign-up,
+    .host-price-sign-up,
+    .host-start-date,
+    .host-end-date,
+    .host-dietary-restrictions-sign-up,
+    .host-capacity-sign-up{
+        flex: 1;
+    }
+    input {
+        width: 100%;
+        border-radius: .5em;
+        padding: .25em;
+        border: 1px solid black;
+    }
+}
+.house-person-container{
+    input{
+       border: 0;
+    }
+}
+
+textarea {
+    width: 100%;
+    border-radius: .5em;
+    padding: .5em;
+    border: 1px solid black;
+}
+
+.host-details-sign-up{
+    display: flex;
+    flex-direction: column;
+}
+
+.host-location-sign-up{
+    display: flex;
+    flex-direction: column  ;
+    select{
+        width: 100%;
+        border-radius: .5em;
+        padding: .25em;
+        border: 1px solid black;
+    }
+}   
