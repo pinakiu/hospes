@@ -32,11 +32,11 @@ const Header = () => {
                             animate="visible"
                             variants={containerVariants}
                             >
-                                <motion.button className="profile-option profile-button" variants={buttonVariants}>
-                                    Profile
+                                <motion.button className="profile-option home-button" variants={buttonVariants}>
+                                    Home
                                 </motion.button>
                                 <motion.button className="profile-option" variants={buttonVariants}>
-                                    Settings
+                                    Profile
                                 </motion.button>
                                 <motion.button className="profile-option logout-button" variants={buttonVariants}>
                                     Logout

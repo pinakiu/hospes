@@ -3,6 +3,8 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import Homepage from "./Homepage";
 import HostProfile from "./HostProfile";
+import GuestProfile from "./GuestProfile";
+
 const Router = () => {
     const user = true;
 const router = createBrowserRouter([
@@ -18,8 +20,15 @@ const router = createBrowserRouter([
       path: "/sign-up",
       element: <SignUp/>
     },
-    {path: "/profile",
-    element: <HostProfile/>}
+    {
+      path: "/profile/host",
+      element: <HostProfile/>
+    },
+    {
+      path: "/profile/guest",
+      element: <GuestProfile/>
+    }
+
 ]);
   return (
       <RouterProvider router={router} />
