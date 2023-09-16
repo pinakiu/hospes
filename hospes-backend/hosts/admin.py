@@ -1,6 +1,6 @@
-# from django.contrib import admin
-# # from .models import Config, ConfigSet
+from django.contrib import admin
+from .models import HostProfile
 
-# # models_list = [Config, ConfigSet]
-# # admin.site.register(models_list)
-# # Register your models here.
+models_list = [HostProfile]
+admin.site.register(models_list)
+
