@@ -3,6 +3,6 @@ from accessories import views
 from django.urls import path, include
 
 urlpatterns = [
-    path('getConfig/', views.getConfig),
-    path('getConfig/<int:id>/', views.getConfigDetail),
+#     path('getConfig/', views.getConfig),
+#     path('getConfig/<int:id>/', views.getConfigDetail),
 ]
