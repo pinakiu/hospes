@@ -2,12 +2,12 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import image from "../assets/greeting-guests.jpg"
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ToggleButton from './ToggleButton';
 
 const SignUp = () => {
   const [selected, setSelected] = useState('Guest');
-
+  const navigate = useNavigate();
     const [client, setClient] = useState({
         name: "",
         email: "",
@@ -43,6 +43,7 @@ const SignUp = () => {
           response => 
           {if(response.ok){
             console.log("hi")
+            navigate("/login")
             
           }}
         )
@@ -70,6 +71,7 @@ const SignUp = () => {
                           name='name'
                           onChange={(e) => handleClientChange(e)}
                           value={client.name}
+                          required
                         />
                         {client.name.length === 0 &&
                         <label className="form-label" htmlFor="form3Example3c">
@@ -87,6 +89,7 @@ const SignUp = () => {
                           name='email'
                           onChange={(e) => handleClientChange(e)}
                           value={client.email}
+                          required
                         />
                         {client.email.length === 0 &&
                         <label className="form-label" htmlFor="form3Example3c">
@@ -104,6 +107,7 @@ const SignUp = () => {
                           name='password'
                           onChange={(e) => handleClientChange(e)}
                           value={client.password}
+                          required
                         />
                           {client.password.length === 0 &&
                             <label className="form-label" htmlFor="form3Example3c">
@@ -122,6 +126,7 @@ const SignUp = () => {
                           name='confirmPassword'
                           onChange={(e) => handleClientChange(e)}
                           value={client.confirmPassword}
+                          required
                         />
                         {client.confirmPassword.length === 0 &&
                         <label className="form-label" htmlFor="form3Example3c">

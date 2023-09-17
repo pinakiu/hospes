@@ -2,7 +2,9 @@ import Icon from '@mdi/react';
 
 import { mdiMagnify } from '@mdi/js';
 import { motion } from "framer-motion";
+import { useSelector } from 'react-redux';
 const SearchBar = () => {
+    const locations = useSelector((state) => state.cities)
     return(
         <div className="search-bar">
         <div className="location">
@@ -10,10 +12,10 @@ const SearchBar = () => {
                 Location:
             </label>
             <select  aria-label="Default select example" name="location">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option selected disabled>Open this select menu</option>
+               {locations.map((location) => (
+                     <option key={location}>{location}</option>
+                ))}
             </select>
         </div>
         <div className="start-date">

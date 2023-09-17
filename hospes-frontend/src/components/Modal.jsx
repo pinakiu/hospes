@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUser } from '../redux/userSlice';
 
 const Modal = () => {
   const user = useSelector((state) => state.user);
@@ -29,6 +30,7 @@ const Modal = () => {
     'Soy-Free',
     'No Restrictions'
   ];
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === 'homeImage' || name === 'personImage') {
@@ -48,6 +50,8 @@ const Modal = () => {
     e.preventDefault()
     console.log(formState)
     const formData = new FormData();
+    formData.append('id',user._id);
+    formData.append("first_time", false)
     formData.append('origin', formState.origin);
     formData.append('location', formState.location);
     formData.append('language', formState.language);
@@ -66,13 +70,17 @@ const Modal = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        dispatch(updateUser(data));
       });
   }
   return (
       <>
       <div className="background">
         <form className='sign-up-form' onSubmit={e => submit(e)}>
-          <h2>Your one stop away from finding your dream host!</h2>
+          {user.hostOrClient === "Host" ?
+          <h2>Your one stop away from being the best host!</h2>:
+          <h2>Your one stop away from finding the best host!</h2>
+          }
 
           <div className="host-location-container">
             <div className="origin-host-sign-up">
@@ -99,7 +107,7 @@ const Modal = () => {
 
             <div className="host-price-sign-up">
               <label htmlFor="price">Price: </label>
-              <input type="number" name="price" id="price" placeholder={user.hostOrGuest ? "How much are you renting for per week?" : "What's your price range per week?"} required onChange={handleChange}/>
+              <input type="number" name="price" id="price" placeholder={user.hostOrGuest ? "How much are you renting for per day?" : "What's your price range per day?"} required onChange={handleChange}/>
             </div>
           </div>
 
@@ -138,7 +146,7 @@ const Modal = () => {
           </div>
 
           <div className="house-person-container">
-            {user.hostOrGuest &&
+            {user.hostOrGuest=== "Hosy" &&
               <div className="host-house-type-sign-up">
                 <label htmlFor="homeImage">Home Image</label>
                 <input type="file" name="homeImage" id="homeImage" onChange={handleChange}

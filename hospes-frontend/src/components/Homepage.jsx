@@ -28,7 +28,10 @@ const Homepage = () => {
                     <Loading/>
                 </div>
             </div>
-            <Modal/>
+            {user.first_time &&
+                <Modal/>
+            }
+            
         </>
         
     )

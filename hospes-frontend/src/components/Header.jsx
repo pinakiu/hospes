@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { updateUser } from "../redux/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const Header = () => {
+    const user = useSelector((state) => state.user);
     const navigate = useNavigate();
     const containerVariants = { 
         hidden: { height: "0%" },
@@ -52,12 +53,23 @@ const Header = () => {
                             animate="visible"
                             variants={containerVariants}
                             >
-                                <motion.button className="profile-option home-button" variants={buttonVariants}>
-                                    Home
-                                </motion.button>
-                                <motion.button className="profile-option" variants={buttonVariants}>
-                                    Profile
-                                </motion.button>
+                                <Link to ="/">
+                                    <motion.button className="profile-option home-button" variants={buttonVariants}>
+                                            Home
+                                    </motion.button>
+                                </Link>
+                                {user.hostOrClient === "Host" ? 
+                                 <Link to ={`/profile/host/${user._id}`}>
+                                    <motion.button className="profile-option" variants={buttonVariants}>
+                                            Profile
+                                    </motion.button>
+                                </Link>:                      
+                                <Link to ={`/profile/guest/${user._id}`}>
+                                    <motion.button className="profile-option" variants={buttonVariants}>
+                                            Profile
+                                    </motion.button>
+                                </Link>}
+           
                                 <motion.button className="profile-option logout-button" variants={buttonVariants}
                                 onClick={() => logout()}>
                                     Logout

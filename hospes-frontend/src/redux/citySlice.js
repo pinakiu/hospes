@@ -24,7 +24,7 @@ const initialState =  [
   ];
 
 const citySlice = createSlice({
-  name: "user", 
+  name: "cities", 
   initialState,
 });
 

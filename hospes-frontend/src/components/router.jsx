@@ -30,7 +30,6 @@ const Router = () => {
         })
         .then((data) => {
           if(data){
-            console.log( data)
           dispatch(updateUser(data));
           }
           setLoading(false);
@@ -55,19 +54,19 @@ const Router = () => {
     },
     {
       path: "/login",
-      element: <Login />
+      element: user ? <Navigate to= "/"/> : <Login />,
     },
     {
       path: "/sign-up",
-      element: <SignUp />
+      element: user ? <Navigate to= "/"/> : <SignUp />,
     },
     {
-      path: "/profile/host",
-      element: <HostProfile />
+      path: "/profile/host/:id",
+      element: user ? <HostProfile /> : <Navigate to="/login" />,
     },
     {
-      path: "/profile/guest",
-      element: <GuestProfile />
+      path: "/profile/guest/:id",
+      element: user ? <GuestProfile /> : <Navigate to="/login" />,
     }
   ]);
 
