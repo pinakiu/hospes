@@ -10,7 +10,6 @@ function(req, res) {
   res.status(200).json(req.user)
 })
 router.get("/local/success", (req,res,next)=>{
-    console.log(req.user);
     let a= req.user;
   if(req.user){
     a.password = undefined;

@@ -1,11 +1,12 @@
 const asyncHandler = require('express-async-handler');
 const User = require("../models/user")
 const bcrypt = require('bcryptjs');
-
+require("dotenv").config()
 module.exports.postUser = asyncHandler(async (req, res) => {
     const {email, name, password, hostOrGuest} = req.body;  
     bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
-        const user = new User({email, name, password:hashedPassword, hostOrGuest})
+        try
+       { const user = new User({email, name, password:hashedPassword, hostOrGuest})
         const findUser = await User.findOne({email:email});
         if(!findUser)
         {
@@ -14,24 +15,43 @@ module.exports.postUser = asyncHandler(async (req, res) => {
         }
         else {
             res.status(400).json({message:"User already exists"})
+        }}
+        catch(err) {
+            console.log(err)
         }
       });
 });
 
 module.exports.postMore = asyncHandler(async (req, res) => {
-    try {
-        
-        const files = req.files;
-        console.log(files);
-        // files is an array containing information about each uploaded file
-        if (files.length !== 2) {
-        return res.status(400).send('You must upload exactly two photos.');
+      try {
+        const updatedFields = req.body;
+    
+        // If files are uploaded, save their paths
+        if (req.files) {
+          if (req.files.homeImage) {
+            updatedFields.homeImage = `${process.env.SELF}/${req.files.homeImage[0].path}`;
+          }
+          if (req.files.personImage) {
+            updatedFields.personImage = `${process.env.SELF}/${req.files.personImage[0].path}`;
+          }
         }
     
-        // Your logic here to save the images or update the user information
+        const user = await User.findByIdAndUpdate(req.body.id, updatedFields, {
+          new: true // This option returns the modified document
+        });
     
-        res.status(200).send('User info and photos updated successfully');
-    } catch (err) {
-        res.status(500).send(err.message);
+        res.status(200).json(user);
+      } catch (error) {
+        res.status(400).json({ error: error.message });
+      }
+    
+})
+module.exports.getUser = asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const user = await User.findById(id);
+    if(user){
+        res.status(200).json(user);
+    }else{
+        res.status(400).json({message:"User not found"})
     }
 })

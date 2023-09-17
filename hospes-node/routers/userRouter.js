@@ -13,6 +13,7 @@ const storage = multer.diskStorage({
   });
 const upload = multer({ storage: storage });
 
+router.get("/:id", userController.getUser);
 router.post("/", userController.postUser);
 router.put('/', upload.fields([{ name: 'homeImage', maxCount: 1 }, { name: 'personImage', maxCount: 1 }]), userController.postMore);
 
