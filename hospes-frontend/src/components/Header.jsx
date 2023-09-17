@@ -13,6 +13,7 @@ const Header = () => {
         visible: { height: "100%", transition: { staggerChildren: 0.15 } },
         };
         const dispatch = useDispatch();
+        const profile = useSelector((state) => state.user);
         const buttonVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
@@ -43,7 +44,7 @@ const Header = () => {
                     </div>
                     <div className="image-container">
                         <motion.img whileHover={{scale:1.1}} whileTap={{scale:.9}}
-                        src="https://cdn.vectorstock.com/i/preview-2x/62/59/default-avatar-photo-placeholder-profile-icon-vector-21666259.webp" alt="Anonymous Picture"
+                        src={`${profile.personImage}`} alt="Anonymous Picture"
                             className="profile-pic"
                             onClick={() =>setToggleButton(!toggleButton)}/>
                         {toggleButton &&

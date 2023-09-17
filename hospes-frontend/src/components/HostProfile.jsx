@@ -100,7 +100,7 @@ const HostProfile = () =>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Availability</label>
-                        <div style={boxStyle}>{profile.startDate}- {profile.endDate}</div>
+                        <div style={boxStyle}>{profile.startDate.slice(0,10)} - {profile.endDate.slice(0,10)}</div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Capacity</label>

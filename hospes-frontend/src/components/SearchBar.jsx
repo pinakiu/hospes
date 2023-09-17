@@ -76,8 +76,8 @@ const SearchBar = () => {
             </select>
         </div>
         <motion.button whileHover={{scale:1.2}} type='submit'
-        whileTap={{scale:.9}}className="search-button" style={{backgroundColor:"transparent", borderRadius:"2em", border:"none"}}>
-            <Icon path={mdiMagnify} size={1}/>
+            whileTap={{scale:.9}}className="search-button" style={{backgroundColor:"transparent", borderRadius:"2em", border:"none"}}>
+                <Icon path={mdiMagnify} size={1}/>
         </motion.button>
     </form>): null
     )
