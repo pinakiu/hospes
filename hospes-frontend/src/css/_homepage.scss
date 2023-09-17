@@ -141,7 +141,15 @@ header {
 
 // Display homes
 
+.view-filter {
+    display: flex;
+    width: 100vw;
+    padding: 2em;
+    gap: 2em;
+
+}
 .view-homes {
+    flex: 8;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -155,6 +163,12 @@ header {
         font-size: 1.2em
     }
 }
+.filter {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
 .home {
     display: flex;
     flex-direction: column;
@@ -162,9 +176,8 @@ header {
     min-height: 20;
 }
 .home-image{
-    height: 10em;
+    height: 20em;
     border-radius: 1em;
-    flex: 4;
     
 }
 .home-information {

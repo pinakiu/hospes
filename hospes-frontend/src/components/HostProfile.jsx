@@ -77,7 +77,9 @@ const HostProfile = () =>
                     </div>
                     <div className="pb-5" style={iconTextStyle}>
                         <i className="fas fa-language" style={iconStyle}></i>
-                        {/* <span style={spanStyle}>{profileData.languages.join(", ")}</span> */}
+                        <span style={spanStyle}>{profile.language.map((lang, index) => {
+                            return (index !== profile.language.length-1) ? lang + ", " : lang
+                        })}</span>
                     </div>
                     <img src={profile.homeImage} alt="Profile" className="img-fluid" style={{ width: "300px", height: "300px", borderRadius: "15px", objectFit: "cover"}}/>
                 </div>

@@ -26,9 +26,8 @@ const StarRating = ({ rating }) => {
         </div>
       </div>
     );
-  }
-
-  for (let i = fullStars + 1; i < 5; i++) {
+  }const startGrey = remainder > 0 ? fullStars + 1 : fullStars;
+  for (let i = startGrey; i < 5; i++) {
     stars.push(
       <div key={i} style={{ position: 'relative', display: 'inline-block' }}>
         <i className="fas fa-star" style={{ color: 'grey' }}></i>
