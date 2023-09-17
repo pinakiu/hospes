@@ -94,7 +94,7 @@ const HostProfile = () =>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Price</label>
-                        <div style={boxStyle}>{profile.price}</div>
+                        <div style={boxStyle}>{profile.price} per day</div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Availability</label>

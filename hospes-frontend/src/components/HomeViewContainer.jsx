@@ -1,38 +1,64 @@
 import { motion } from "framer-motion";
-const HomeViewContainer = () => {
-    const user = {
-        image: "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=800",
-        location: "New York, NY",
-        price: 500,
-        origin_country: "China",
-        languages: ["English", "Spanish", "Mandarin"]
-    }
-    const repeatedElements = Array(5).fill(null);
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-    return(
+const HomeViewContainer = () => {
+    const [allHosts, setAllHosts] = useState([]);
+    const [loading, setLoading] = useState(true);  // set initial loading state to true
+
+    useEffect(() => {
+        fetch("http://localhost:3000/users/allhosts")
+            .then((r) => {
+                if (!r.ok) {
+                    throw new Error("Failed to fetch data");
+                }
+                return r.json();
+            })
+            .then(data => {
+                console.log(data);
+                setAllHosts(data);
+            })
+            .catch((error) => {
+                console.error("Fetch error: ", error);
+            })
+            .finally(() => {
+                setLoading(false); 
+            });
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>; 
+    }
+
+    return (
         <div className="view-homes">
-            {repeatedElements.map((_, index) => (
-                <div className="home" key={index}>
+            { allHosts.length !== 0 && allHosts.map((user) => (
+                <Link to={`/profile/host/${user._id}`}className="home" key={user._id}>
                 <motion.img
                     whileHover={{ scale: 1.05 }}
-                    src="https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    src={user.homeImage}
                     alt="HomeImage"
                     className="home-image"
+                    style={{maxWidth:"100%"
+                    ,height:"20em"}}
+                    
                 />
                 <div className="home-information">
+                    <div className="username">{user.name}</div>
                     <div className="home-location">{user.location}</div>
-                    <div className="owner-origin">Host is from: {user.origin_country}</div>
+                    <div className="owner-origin">Host is from: {user.origin}</div>
                     <div className="languages-spoken">
                     Languages: <span> </span>
-                    {user.languages.map((language, languageIndex) => (
+                    {/* {user.languages.map((language, languageIndex) => (
                         <span key={languageIndex}>{language} </span>
-                    ))}
+                    ))} */}
                     </div>
-                    <div className="stay-price">Total Price: ${user.price}</div>
+                    <div className="stay-price">Price per day: ${user.price}</div>
                 </div>
-                </div>
+                </Link>
             ))}
         </div>
-    )
-}
-export default HomeViewContainer
+    );
+};
+
+export default HomeViewContainer;

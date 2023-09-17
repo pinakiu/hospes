@@ -10,7 +10,7 @@ const userSchema =  new Schema({
     details: {type:String, default:""},
     origin: { type: String, default: "" },
     location: { type: String, default: "" },
-    language: { type: String, default: "" },
+    language: [{ type: String, default: "" }],
     price: { type: Number, default: 0 },
     startDate: { type: Date, default: null },
     endDate: { type: Date, default: null },

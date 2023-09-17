@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler');
 const User = require("../models/user")
 const bcrypt = require('bcryptjs');
+const { mdiYoutube } = require('@mdi/js');
 require("dotenv").config()
 module.exports.postUser = asyncHandler(async (req, res) => {
     const {email, name, password, hostOrGuest} = req.body;  
@@ -55,3 +56,26 @@ module.exports.getUser = asyncHandler(async (req, res) => {
         res.status(400).json({message:"User not found"})
     }
 })
+module.exports.getAllHosts = asyncHandler(async (req, res) => {
+    const hosts = await User.find({hostOrGuest:"Host"});
+    if(hosts){
+        res.status(200).json(hosts);
+    }else{
+        res.status(400).json({message:"No hosts found"})
+    }
+})
+module.exports.getAllLocations = asyncHandler(async (req, res) => {
+  const hosts = await User.find({hostOrGuest: "Host"});
+  console.log(hosts);
+  if (hosts && hosts.length > 0) {
+      const uniqueLocations = new Set();
+      for (let host of hosts) {
+          uniqueLocations.add(host.location);
+      }
+      const uniqueLocationsArray = Array.from(uniqueLocations);
+      console.log(uniqueLocationsArray);
+      res.status(200).json(uniqueLocationsArray);
+  } else {
+      res.status(400).json({message: "No hosts found"});
+  }
+});
