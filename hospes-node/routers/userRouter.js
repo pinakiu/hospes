@@ -14,6 +14,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get("/allHosts", userController.getAllHosts);
+router.get("/host", userController.queryHosts);
+
 router.get("/host/locations", userController.getAllLocations);
 router.get("/:id", userController.getUser);
 router.post("/", userController.postUser);

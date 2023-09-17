@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 const Homepage = () => {
     const user = useSelector((state) => state.user);
-    console.log(user)
     return (
         <>
             <Header/>

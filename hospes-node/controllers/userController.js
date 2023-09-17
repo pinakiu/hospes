@@ -66,16 +66,35 @@ module.exports.getAllHosts = asyncHandler(async (req, res) => {
 })
 module.exports.getAllLocations = asyncHandler(async (req, res) => {
   const hosts = await User.find({hostOrGuest: "Host"});
-  console.log(hosts);
   if (hosts && hosts.length > 0) {
       const uniqueLocations = new Set();
       for (let host of hosts) {
           uniqueLocations.add(host.location);
       }
       const uniqueLocationsArray = Array.from(uniqueLocations);
-      console.log(uniqueLocationsArray);
       res.status(200).json(uniqueLocationsArray);
   } else {
       res.status(400).json({message: "No hosts found"});
   }
 });
+module.exports.queryHosts = asyncHandler(async (req, res) => {
+  const {location, startDate, endDate, guests} = req.query;
+  const actualStart = new Date(startDate);
+  const actualEnd = new Date(endDate);
+
+  const hosts = await User.find({
+      location: location,
+      hostOrGuest: "Host",
+      capacity: { $gte: guests },
+      $and: [
+        { startDate: { $lte: actualStart } },
+        { endDate: { $gte: actualEnd } }
+      ]
+  });
+    console.log(req.query)
+  if (hosts && hosts.length > 0) {
+      res.status(200).json(hosts);
+  } else {
+      res.status(400).json({message: "No hosts found"});
+  }
+})

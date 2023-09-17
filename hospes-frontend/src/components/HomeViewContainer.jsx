@@ -1,30 +1,37 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const HomeViewContainer = () => {
     const [allHosts, setAllHosts] = useState([]);
     const [loading, setLoading] = useState(true);  // set initial loading state to true
-
+    const search = useSelector((state) => state.search);
     useEffect(() => {
-        fetch("http://localhost:3000/users/allhosts")
-            .then((r) => {
-                if (!r.ok) {
-                    throw new Error("Failed to fetch data");
-                }
-                return r.json();
-            })
-            .then(data => {
-                console.log(data);
-                setAllHosts(data);
-            })
-            .catch((error) => {
-                console.error("Fetch error: ", error);
-            })
-            .finally(() => {
-                setLoading(false); 
-            });
-    }, []);
+        setLoading(true);
+        if(search)
+        {const url = new URL("http://localhost:3000/users/host");
+        url.search = new URLSearchParams(search);
+        fetch(url).then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+            else{
+                console.log("bad");
+                setAllHosts([]);
+                setLoading(false)
+            }
+        }).then (data => {
+            if(data){
+            setAllHosts(data);
+        }
+            setLoading(false)
+        })}
+        else{
+            setLoading(false)
+        }
+
+    }, [search]);
 
     if (loading) {
         return <div>Loading...</div>; 
@@ -32,7 +39,7 @@ const HomeViewContainer = () => {
 
     return (
         <div className="view-homes">
-            { allHosts.length !== 0 && allHosts.map((user) => (
+            { allHosts.length !== 0 ? allHosts.map((user) => (
                 <Link to={`/profile/host/${user._id}`}className="home" key={user._id}>
                 <motion.img
                     whileHover={{ scale: 1.05 }}
@@ -56,7 +63,7 @@ const HomeViewContainer = () => {
                     <div className="stay-price">Price per day: ${user.price}</div>
                 </div>
                 </Link>
-            ))}
+            )): <div className="no-results">No results found at the moment please put in a query to proceed</div>}
         </div>
     );
 };

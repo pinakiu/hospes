@@ -31,19 +31,29 @@ function getRandomElement(array) {
       endDate = getRandomDate();
   }
     const homes = [
-      "https://images.pexels.com/photos/3555615/pexels-photo-3555615.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/3625711/pexels-photo-3625711.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/221024/pexels-photo-221024.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/3075974/pexels-photo-3075974.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/2972969/pexels-photo-2972969.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/3221216/pexels-photo-3221216.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/3571200/pexels-photo-3571200.png?auto=compress&cs=tinysrgb&w=800"
-    ]
+    "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80",
+    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80",
+    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3174&q=80",
+    "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzJ8fGhvbWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1602872029708-84d970d3382b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzd8fGhvbWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80",
+    "https://plus.unsplash.com/premium_photo-1686090448451-fe1327f9b042?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80",
+    "https://images.unsplash.com/photo-1511452885600-a3d2c9148a31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE0fHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIyfHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1592595896551-12b371d546d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTI4fHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1605146769289-440113cc3d00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM4fHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1416331108676-a22ccb276e35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ3fHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTYwfHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1506126279646-a697353d3166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc0fHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1599243272864-e9dd455966bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTgyfHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1584738766473-61c083514bf4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjAzfHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1430285561322-7808604715df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjIwfHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1560170412-0f7df0eb0fb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjQ0fHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1464146072230-91cabc968266?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjk2fHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1509422007420-a57adf7b7fdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzEwfHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzE0fHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    "https://images.unsplash.com/photo-1510627489930-0c1b0bfb6785?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzIyfHxob21lfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+  ]
 
     const cities = [
         "New York City, NY",
@@ -114,11 +124,11 @@ function getRandomElement(array) {
     origin: getRandomElement(countriesWithMostImmigrantsToUS),
     location: getRandomElement(cities),
     language: randomLanguages,
-    price: Math.floor(Math.random() * 70),
+    price: Math.floor(Math.random() * 50 + 20),
     startDate: startDate,
     endDate: endDate,
     dietaryRestrictions: getRandomElement(dietaryRestrictions),
-    capacity: Math.floor(Math.random() * 5),
+    capacity: Math.floor(Math.random() * 4 +1),
     homeImage: getRandomElement(homes),
     personImage: faker.image.avatar(),
     details: faker.lorem.sentence(),
@@ -128,7 +138,7 @@ function getRandomElement(array) {
   };
 }
 
-const USERS = Array.from({ length: 5}, createRandomUser);
+const USERS = Array.from({ length: 100}, createRandomUser);
 module.exports = {
   createRandomUser,
   USERS,
