@@ -1,21 +1,42 @@
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateUser } from '../redux/userSlice';
 
-function App() {
+const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [user, setUser] = useState({
-    email: "",
+    username: "",
     password: "",
   });
   const handleUserChange = (e) => {
-    if(e.target.name === "email"){
-      setUser({...user, email: e.target.value})
+    if(e.target.name === "username"){
+      setUser({...user, username: e.target.value})
     }
     if(e.target.name === "password"){
       setUser({...user, password: e.target.value})
     }
   } 
+ const submit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3000/auth/local", {
+      method: "POST",
+      credentials: "include",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(user)})
+      .then((res)=> {
+      if(res.ok){
+        localStorage.setItem("token",true);
+        localStorage.setItem("user",null);
+        dispatch(updateUser(null));
+
+        navigate("/");
+        return res.json();
+      }})
+    }
 
   return (
     <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
@@ -47,11 +68,11 @@ function App() {
                           type="email"
                           id="form2Example17"
                           className="form-control form-control-lg"
-                          name='email'
+                          name='username'
                           onChange={(e) => handleUserChange(e)}
-                          value={user.email}
+                          value={user.username}
                         />
-                        {user.email.length === 0 &&
+                        {user.username.length === 0 &&
                           <label className="form-label" htmlFor="form2Example17">
                             Email address
                           </label>}
@@ -79,6 +100,7 @@ function App() {
                       <button
                         className="btn btn-dark btn-lg btn-block"
                         type="button"
+                        onClick={(e) => submit(e)}
                       >
                         Login
                       </button>
@@ -110,4 +132,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;

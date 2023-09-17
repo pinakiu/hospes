@@ -1,8 +1,7 @@
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import React, { useState } from 'react';
 
-const ToggleButton = () => {
-  const [selected, setSelected] = useState('Guest');
+
+const ToggleButton = ({selected, setSelected}) => {
 
   const handleSelect = (e, option) => {
     e.preventDefault()

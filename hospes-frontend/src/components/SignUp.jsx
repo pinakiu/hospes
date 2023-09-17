@@ -6,11 +6,14 @@ import { Link } from 'react-router-dom';
 import ToggleButton from './ToggleButton';
 
 const SignUp = () => {
+  const [selected, setSelected] = useState('Guest');
+
     const [client, setClient] = useState({
         name: "",
         email: "",
         password: "",
         confirmPassword: "",
+        hostOrGuest: selected 
     }); 
     useEffect(() => {
         console.log(client)
@@ -29,8 +32,21 @@ const SignUp = () => {
         if(e.target.name === "confirmPassword"){
             setClient({...client, confirmPassword: e.target.value})
         }
-    }
 
+    }
+    const handleClientSubmit = (e) => {
+      e.preventDefault();
+      fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(client)}).then(
+          response => 
+          {if(response.ok){
+            console.log("hi")
+            
+          }}
+        )
+    }
   return (
   <section className="vh-100" style={{ backgroundColor: "#eee" }}>
     <div className="container h-100">
@@ -114,10 +130,11 @@ const SignUp = () => {
                       </div>
                     </div>
                     <div className="form-check d-flex align-items-center justify-content-center mb-2 pt-4 pb-4 px-2">
-                        <ToggleButton/>
+                        <ToggleButton setSelected={setSelected} selected={selected}/>
                     </div>
                     <div className="d-flex justify-content-center mt-2, mx-4 mb-3 mb-lg-4">
-                      <button type="button" className="btn btn-dark btn-lg btn-block">
+                      <button type="button" className="btn btn-dark btn-lg btn-block"
+                        onClick={(e) => handleClientSubmit(e)}>
                         Register
                       </button>
                     </div>

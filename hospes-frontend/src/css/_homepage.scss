@@ -165,3 +165,24 @@ header {
     color: grey;
     
 }
+#root{
+    display: relative;
+}
+.background {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255,255,255,.5);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sign-up-form {
+    background-color: white;
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 1em;
+
+}

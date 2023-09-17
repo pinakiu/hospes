@@ -1,18 +1,38 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { updateUser } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
 
 
 const Header = () => {
+    const navigate = useNavigate();
     const containerVariants = { 
         hidden: { height: "0%" },
         visible: { height: "100%", transition: { staggerChildren: 0.15 } },
         };
-        
+        const dispatch = useDispatch();
         const buttonVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
         };
     const [toggleButton, setToggleButton] = useState(false)
+    const logout = () => {
+        fetch("http://localhost:3000/auth/logout", {
+            method: "POST",
+            credentials: "include",
+            headers: {"Content-Type": "application/json"},
+        }).then((res) => {
+            if(res.ok) {
+                console.log("hi")
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+                dispatch(updateUser(null));
+                navigate(0);
+                return res.json();
+            }
+        })
+    }
     return (
         <div>
             <header>
@@ -38,7 +58,8 @@ const Header = () => {
                                 <motion.button className="profile-option" variants={buttonVariants}>
                                     Profile
                                 </motion.button>
-                                <motion.button className="profile-option logout-button" variants={buttonVariants}>
+                                <motion.button className="profile-option logout-button" variants={buttonVariants}
+                                onClick={() => logout()}>
                                     Logout
                                 </motion.button>
                             </motion.div>
