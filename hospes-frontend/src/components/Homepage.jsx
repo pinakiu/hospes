@@ -5,8 +5,10 @@ import SearchBar from "./SearchBar";
 import Loading from "./Loading";
 import HomeViewContainer from "./HomeViewContainer";
 import Modal from "./Modal";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 const Homepage = () => {
-
+    const user = useSelector((state) => state.user);
     return (
         <>
             <Header/>
@@ -25,7 +27,10 @@ const Homepage = () => {
                     <Loading/>
                 </div>
             </div>
-            <Modal/>
+            {user.first_time &&
+                <Modal/>
+            }
+            
         </>
         
     )

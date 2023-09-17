@@ -17,7 +17,10 @@ header {
     color: #6B5E62;
     border-bottom: 1px solid black;
 }
-
+.profile-option {
+    width: 100%;
+    height: 100%;
+}
 .navigation {
     height: 100%;
     padding: .5em;
@@ -104,7 +107,8 @@ header {
     border: 1px solid black;
     border-radius: 2em;  
     background-color: rgb(235,235,235);
-    width: 80%
+    width: 80%;
+    border-bottom: 1px solid black;
 }
 .location{
     flex: 2;
@@ -137,11 +141,33 @@ header {
 
 // Display homes
 
+.view-filter {
+    display: flex;
+    width: 100vw;
+    padding: 2em;
+    gap: 2em;
+
+}
 .view-homes {
+    flex: 8;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap:1em;
+    position: relative;
+    .no-results{
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translateX(-50%);
+        font-size: 1.2em
+    }
+}
+.filter {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 .home {
     display: flex;
@@ -150,9 +176,8 @@ header {
     min-height: 20;
 }
 .home-image{
-    height: 15em;
+    height: 20em;
     border-radius: 1em;
-    flex: 4;
     
 }
 .home-information {
@@ -164,4 +189,25 @@ header {
     font-size: .8em;
     color: grey;
     
+}
+#root{
+    display: relative;
+}
+.background {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255,255,255,.5);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sign-up-form {
+    background-color: white;
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 1em;
+
 }

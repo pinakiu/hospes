@@ -1,7 +1,7 @@
 .sign-up-form {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: .5em;
 }
 .host-location-container, .language-price-container,
 .availability-container,
@@ -44,7 +44,7 @@ textarea {
     flex-direction: column;
 }
 
-.host-location-sign-up{
+.host-location-sign-up, .host-dietary-restrictions-sign-up, .host-capacity-sign-up{
     display: flex;
     flex-direction: column  ;
     select{
@@ -54,3 +54,35 @@ textarea {
         border: 1px solid black;
     }
 }   
+
+#root{
+    display: relative;
+}
+.background {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255,255,255,.5);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+}
+.sign-up-form {
+    background-color: white;
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 1em;
+}
+.submit-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submit-button {
+    font-size: 1.3em;
+    padding: .5em;
+
+}
