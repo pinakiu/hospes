@@ -56,9 +56,9 @@ const HomeViewContainer = () => {
                     <div className="owner-origin">Host is from: {user.origin}</div>
                     <div className="languages-spoken">
                     Languages: <span> </span>
-                    {/* {user.languages.map((language, languageIndex) => (
+                    {user.language.map((language, languageIndex) => (
                         <span key={languageIndex}>{language} </span>
-                    ))} */}
+                    ))}
                     </div>
                     <div className="stay-price">Price per day: ${user.price}</div>
                 </div>

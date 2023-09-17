@@ -30,6 +30,7 @@ async function saveFakeUsers(usersArray){
         console.log("saved")
       }
   }}
+saveFakeUsers(USERS);
 app.use(passport.initialize());
 app.use(passport.session());
 passport.serializeUser((user, done) => {
